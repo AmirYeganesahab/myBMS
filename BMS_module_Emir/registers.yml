@@ -1,0 +1,94 @@
+DEFAULT_NA: "N/A"
+MAC: 0x44 #ManufacturerBlockAccess
+MAC_BLOCK:
+  DeviceType: 0x0001
+  FirmwareVersion: 0x0002
+  HardwareVersion: 0x0003
+  IFChecksum: 0x0004
+  StaticDFSignature: 0x0005
+  ChemID: 0x0006
+  StaticChemDFSignature: 0x0008
+  ShutdownMode: 0x0010
+  SleepMode: 0x0011 # If the sleep conditions are met, the device can be sent to sleep with ManufacturerAccess()
+  AutoCCOfset: 0x0013
+  FuseToggle: 0x001D
+  PrechargeFET: 0x001E
+  ChargeFET: 0x001F
+  DischargeFET: 0x0020 
+  Gauging: 0x0021
+  FETControl: 0x0022
+  LifetimeDataCollection: 0x0023
+  PermanentFailure: 0x0024
+  BlackBoxRecorder: 0x0025
+  Fuse: 0x0026
+  LifetimeDataReset: 0x0028
+  PermanentFailureDataReset: 0x0029
+  LifetimeDataFlush: 0x002E
+  LifetimeDataSpeedUpMode: 0x002F
+  BlackBoxRecorderReset: 0x002A
+  CalibrationMode: 0x002D
+  SealDevice: 0x0030
+  SecurityKeys: 0x0035
+  AuthenticationKey: 0x0037
+  DeviceReset: 0x0041
+  SafetyAlert: 0x0050
+  SafetyStatus: 0x0051
+  PFAlert: 0x0052
+  PFStatus: 0x0053
+  OperationStatus: 0x0054
+  ChargingStatus: 0x0055
+  GaugingStatus: 0x0056
+  ManufacturingStatus: 0x0057
+  AFERegister: 0x0058
+  LifetimeDataBlock1: 0x0060
+  LifetimeDataBlock2: 0x0061
+  LifetimeDataBlock3: 0x0062
+  ManufacturerInfo: 0x0070
+  DAStatus1: 0x0071
+  DAStatus2: 0x0072
+  GaugeStatus1: 0x0073
+  GaugeStatus2: 0x0074
+  GaugeStatus3: 0x0075
+  CBStatus: 0x0076
+  StateofHealth: 0x0077
+  FilteredCapacity: 0x0078
+  ManufacturerInfoB: 0x007A
+  ROMMode: 0x0F00
+  ExitCalibrationOutput: 0xF080
+  OutputCCandADCforCalibration: 0xF081
+  OutputShortedCCandADCforCalibration: 0xF082
+RemainingCapacityAlarm: 0x01 # This read/write word function sets a low capacity alarm threshold for the cell stack.(NOTE: If BatteryMode()[CAPM] = 0, then the data reports in mAh. If BatteryMode()[CAPM] = 1, then the data reports in 10 mWh.)
+RemainingTimeAlarm: 0x02 # This read/write word function sets a low remaining time-to-fully discharge alarm threshold for the cell stack.
+BatteryMode: 0x03 # This read/write word function sets various battery operating mode options.
+AtRate: 0x04 # This read/write word function sets the value used in calculating AtRateTimeToFull() and AtRateTimeToEmpty().
+AtRateTimeToFull: 0x05 # This word read function returns the remaining time-to-fully charge the battery stack
+AtRateTimeToEmpty: 0x06 # This word read function returns the remaining time-to-fully discharge the battery stack.
+AtRateOK: 0x07 # This read-word function returns a Boolean value that indicates whether the battery can deliver AtRate() for at least 10 s.
+Temperature: 0x08 # This read-word function returns the temperature in units 0.1°K.
+Voltage: 0x09 # This read-word function returns the sum of the measured cell voltages.
+Current: 0x0a # This read-word function returns the measured current from the coulomb counter. If the input to the device exceeds the maximum value, the value is clamped at the maximum and does not roll over.
+AverageCurrent: 0x0c # This read-word function returns the expected margin of error, in %, in the state-of-charge calculation with a range of 1 to 100%.
+RelativeStateOfCharge: 0x0d # This read-word function returns the predicted remaining battery capacity as a percentage of FullChargeCapacity
+AbsoluteStateOfCharge: 0x0e # This read-word function returns the predicted remaining battery capacity as a percentage.
+RunTimeToEmpty: 0x11 # This read-word function returns the predicted remaining battery capacity based on the present rate of discharge.
+AverageTimeToEmpty: 0x12 # This read-word function returns the predicted remaining battery capacity based on AverageCurrent
+AverageTimeToFull: 0x13 # This read-word function returns the predicted time-to-full charge based on AverageCurrent
+ChargingCurrent: 0x14 # This read-word function returns the desired charging voltage.
+ChargingVoltage: 0x15 # This read-word function returns the desired charging voltage.
+BatteryStatus: 0x16 # This read-word function returns various battery status information.
+CycleCount: 0x17 # This read-word function returns the number of discharge cycles the battery has experienced. The default value is stored in the data flash value Cycle Count, which is updated in runtime.
+DesignCapacity: 0x18
+DesignVoltage: 0x19
+SpecificationInfo: 0x1a
+SerialNumber: 0x1c
+ManufacturerName: 0x20
+DeviceName: 0x21
+DeviceChemistry: 0x22 
+CellVoltage4: 0x3C # This read-word function returns the Cell 4 voltage.
+CellVoltage3: 0x3D # This read-word function returns the Cell 3 voltage
+CellVoltage2: 0x3E # This read-word function returns the Cell 2 voltage.
+CellVoltage1: 0x3F # This read-word function returns the Cell 1 voltage
+State-of-Health: 0x4F # This read word command returns the SoH information of the battery in percentage of design capacity and design energy.
+SafetyAlert: 0x50
+SafetyStatus: 0x51
+State-of-Health: 0x77
