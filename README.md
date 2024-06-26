@@ -42,3 +42,23 @@ tint2 &
 
 5- run:
 openbox --reconfigure
+
+6- create a file in anywhere you want named battery_icon_script.sh and write the below in it.
+
+#!/bin/bash
+
+# Get the current battery percentage
+battery_level=$(cat /sys/class/power_supply/BAT0/capacity)
+
+# Determine which icon to show based on battery level
+if [ "$battery_level" -ge 75 ]; then
+    echo '/path/to/full_battery_icon.png'
+elif [ "$battery_level" -ge 50 ]; then
+    echo '/path/to/half_battery_icon.png'
+elif [ "$battery_level" -ge 25 ]; then
+    echo '/path/to/low_battery_icon.png'
+else
+    echo '/path/to/very_low_battery_icon.png'
+fi
+
+
